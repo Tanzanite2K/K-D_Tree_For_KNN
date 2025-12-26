@@ -129,3 +129,6 @@ python benchmark_iris.py       # Small Iris dataset
 python benchmark_digits.py     # High-dimensional Digits dataset
 python benchmark_synthetic.py  # Large low-dimensional synthetic dataset
 ```
+## Output 
+
+![WhatsApp Image 2025-12-26 at 3 44 55 PM](https://github.com/user-attachments/assets/8b723c99-068b-482c-ab9a-ecaeeef3c01c)
