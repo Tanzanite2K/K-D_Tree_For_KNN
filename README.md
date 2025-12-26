@@ -132,3 +132,4 @@ python benchmark_synthetic.py  # Large low-dimensional synthetic dataset
 ## Output 
 
 ![WhatsApp Image 2025-12-26 at 3 44 55 PM](https://github.com/user-attachments/assets/8b723c99-068b-482c-ab9a-ecaeeef3c01c)
+<img width="1127" height="370" alt="image" src="https://github.com/user-attachments/assets/27b5f355-7886-476a-a238-d735fec42185" />
