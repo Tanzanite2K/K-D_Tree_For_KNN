@@ -1,7 +1,3 @@
-Here’s a fully **humanized, polished, and professional version** of your README, keeping all your results, explanations, and experiment insights clear and concise:
-
----
-
 # **K-D Tree for k-Nearest Neighbors (kNN)**
 
 ## **Executive Summary**
