@@ -1,23 +1,21 @@
-# **K-D-Tree for k-Nearest Neighbors(KNN)**
+# K-D-Tree for k-Nearest Neighbors(KNN)
 
 ## Executive Summary
 
-This project implements a K-D-tree accelerated k-Nearest Neighbors (kNN) classifier and evaluates its performance across datasets with varying sizes and dimensionalities. Experiments demonstrate that while k-d trees provide no advantage for small datasets and degrade in high-dimensional spaces due to dimensionality, they achieve significant performance gains on large, low-dimensional datasets, yielding over a 10× reduction in query time compared to brute-force kNN. 
-These results highlight the importance of selecting data structures based on data characteristics rather than assuming universal performance improvements.
+- This project implements a K-D-tree accelerated k-Nearest Neighbors (kNN) classifier and evaluates its performance across datasets with varying sizes and dimensionalities. - Experiments demonstrate that while k-d trees provide no advantage for small datasets and degrade in high-dimensional spaces due to dimensionality, they achieve significant   performance gains on large, low-dimensional datasets, yielding over a 10× reduction in query time compared to brute-force kNN. 
+- These results highlight the importance of selecting data structures based on data characteristics rather than assuming universal performance improvements.
 
 
 ## Objective
 
-The objective of this project is to accelerate k-Nearest Neighbors (kNN) classification using a k-d tree data structure and to compare its performance against brute-force kNN and scikit-learn’s optimized kNN implementation in terms of accuracy and query latency.
+- The objective of this project is to accelerate k-Nearest Neighbors (kNN) classification using a k-d tree data structure and to compare its performance against brute-force    kNN and scikit-learn’s optimized kNN implementation in terms of accuracy and query latency.
 
 
 ## Methodology
 
-A balanced k-d tree was constructed by recursively partitioning the dataset along alternating feature axes. At each depth, the data points were sorted along the selected axis, and the median point was chosen as the splitting node to ensure balanced tree construction.
-
-For inference, k-nearest neighbors were retrieved using a recursive tree traversal strategy with backtracking. During the search, branches of the tree were pruned based on the distance to the splitting hyperplane. Final class prediction was obtained using majority voting among the k nearest neighbors.
-
-A brute-force kNN implementation was also developed as a baseline, and scikit-learn’s kNN classifier was used for reference comparison.
+- A balanced k-d tree was constructed by recursively partitioning the dataset along alternating feature axes. At each depth, the data points were sorted along the selected     axis, and the median point was chosen as the splitting node to ensure balanced tree construction.
+- For inference, k-nearest neighbors were retrieved using a recursive tree traversal strategy with backtracking. During the search, branches of the tree were pruned based on   the distance to the splitting hyperplane. Final class prediction was obtained using majority voting among the k nearest neighbors.
+- A brute-force kNN implementation was also developed as a baseline, and scikit-learn’s kNN classifier was used for reference comparison.
 
 
 ## Datasets
@@ -73,26 +71,23 @@ This experiment analyzes scalability on a large, low-dimensional dataset (50,000
 | Synthetic | 2   | 50,000  | Brute KNN   | 14.829358 | 1.0×             |
 | Synthetic | 2   | 50,000  | KD-Tree KNN | 1.207038  | 12.29×           |
 
-    - Accuracy remained consistent across all methods, confirming that performance differences are due to algorithmic efficiency rather than predictive quality.
-    - On the large low-dimensional synthetic dataset, the k-d tree achieved over a 12× query speedup compared to brute-force kNN, clearly demonstrating its scalability advantage in suitable data regimes.
+- Accuracy remained consistent across all methods, confirming that performance differences are due to algorithmic efficiency rather than predictive quality.
+- On the large low-dimensional synthetic dataset, the k-d tree achieved over a 12× query speedup compared to brute-force kNN, clearly demonstrating its scalability advantage   in suitable data regimes.
 
 
 ## Scalability Analysis
 
-To evaluate scalability, experiments were extended beyond the small Iris dataset. On the Digits dataset, which is high-dimensional, the k-d tree approach performed worse than brute-force kNN due to reduced effectiveness of spatial partitioning and increased traversal overhead.
-
-In contrast, on the large low-dimensional synthetic dataset, the k-d tree demonstrated a significant performance advantage, achieving more than a 10× reduction in query time compared to brute-force kNN. This clearly illustrates that k-d trees scale efficiently when the dimensionality is low and the dataset size is large.
+- To evaluate scalability, experiments were extended beyond the small Iris dataset. On the Digits dataset, which is high-dimensional, the k-d tree approach performed worse     than brute-force kNN due to reduced effectiveness of spatial partitioning and increased traversal overhead.
+- In contrast, on the large low-dimensional synthetic dataset, the k-d tree demonstrated a significant performance advantage, achieving more than a 10× reduction in query      time compared to brute-force kNN. This clearly illustrates that k-d trees scale efficiently when the dimensionality is low and the dataset size is large.
 
 
 ## Discussion
 
-The k-d tree construction has a time complexity of O(N log N) due to recursive median selection, while query complexity approaches O(log N) in low-dimensional spaces but degrades toward O(N) in high-dimensional settings due to reduced pruning efficiency.
-
-The experimental results demonstrate that the effectiveness of k-d trees strongly depends on both dataset size and dimensionality. For small datasets such as Iris, brute-force kNN is faster due to minimal overhead. In high-dimensional datasets like Digits, k-d trees suffer from the curse of dimensionality, resulting in degraded performance compared to brute-force search.
-
-However, for large low-dimensional datasets, k-d trees significantly reduce the number of distance computations through effective pruning of the search space, leading to substantial speedups. These findings align with established theoretical properties of k-d trees.
+- The k-d tree construction has a time complexity of O(N log N) due to recursive median selection, while query complexity approaches O(log N) in low-dimensional spaces but     degrades toward O(N) in high-dimensional settings due to reduced pruning efficiency.
+- The experimental results demonstrate that the effectiveness of k-d trees strongly depends on both dataset size and dimensionality. For small datasets such as Iris, brute-    force kNN is faster due to minimal overhead. In high-dimensional datasets like Digits, k-d trees suffer from the curse of dimensionality, resulting in degraded performance   compared to brute-force search.
+- However, for large low-dimensional datasets, k-d trees significantly reduce the number of distance computations through effective pruning of the search space, leading to     substantial speedups. These findings align with established theoretical properties of k-d trees.
 
 
 ## Conclusion
 
-This project demonstrates that k-d trees can significantly accelerate kNN classification under appropriate conditions. While brute-force kNN is sufficient for small datasets and high-dimensional spaces, k-d trees provide substantial performance benefits for large, low-dimensional datasets. The results highlight the importance of choosing data structures based on data characteristics rather than assuming universal performance improvements.
+- This project demonstrates that k-d trees can significantly accelerate kNN classification under appropriate conditions. While brute-force kNN is sufficient for small          datasets and high-dimensional spaces, k-d trees provide substantial performance benefits for large, low-dimensional datasets. The results highlight the importance of         choosing data structures based on data characteristics rather than assuming universal performance improvements.
